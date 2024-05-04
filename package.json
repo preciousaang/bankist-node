@@ -4,6 +4,7 @@
   "description": "A demo of a bank app",
   "main": "src/app.ts",
   "scripts": {
+    "start": "tsc && node dist/app.js",
     "dev": "nodemon --exec ts-node src/app.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
