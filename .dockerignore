@@ -1,0 +1,37 @@
+# Ignore development and testing directories
+node_modules/
+test/
+tests/
+coverage/
+tmp/
+temp/
+
+# Ignore npm/yarn cache
+.npm
+.yarn
+
+# Ignore editor-specific files
+.vscode/
+*.code-workspace
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Ignore TypeScript configuration and cache
+tsconfig.json
+tsconfig.*.json
+*.tsbuildinfo
+
+# Ignore log files
+*.log
+
+# Ignore build artifacts
+/dist/
+
+# Ignore Docker-specific files
+Dockerfile*
+.dockerignore
+
+# Ignore environment files
+.env
+.env.*
