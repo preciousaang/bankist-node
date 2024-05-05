@@ -1,5 +1,6 @@
 {
   "name": "bankist-node",
+  "type": "module",
   "version": "1.0.0",
   "description": "A demo of a bank app",
   "main": "src/app.ts",
