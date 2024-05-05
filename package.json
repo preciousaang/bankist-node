@@ -1,7 +1,6 @@
 {
   "name": "bankist-node",
   "version": "1.0.0",
-  "type": "module",
   "description": "A demo of a bank app",
   "main": "src/app.mjs",
   "scripts": {
@@ -18,7 +17,8 @@
     "express-validator": "^7.0.1",
     "mysql2": "^3.9.7",
     "reflect-metadata": "^0.2.2",
-    "sequelize": "^6.37.3"
+    "sequelize": "^6.37.3",
+    "sqlite3": "^5.1.7"
   },
   "devDependencies": {
     "chai": "^5.1.0",
