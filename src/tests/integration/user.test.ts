@@ -1,9 +1,9 @@
-// import { assert } from 'chai'
-// import { describe, it } from '@jest/globals'
+
+import { expect, test, describe } from "vitest"
 
 
 describe("User tests", () => {
-    it("1 + 1 should be 2", () => {
-        // assert.equal(1 + 1, 2)
+    test("1 + 1 should be 2", () => {
+        expect(1 + 1).toBe(2)
     })
 })
