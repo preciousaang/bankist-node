@@ -2,10 +2,9 @@ import { app } from "../../src/app.mjs";
 import request from "supertest";
 import { should } from "chai";
 import { require } from "../../src/common/utils.mjs";
+const db = require("../../src/models");
 
 should();
-
-const db = require("../../src/models");
 
 // Sync the models with the database (create tables)
 before(async () => {
@@ -58,7 +57,11 @@ describe("Customer tests", () => {
       .send({ page: 1, perPage: 20 });
 
     response.status.should.equal(200);
-    response.body.data.should.be.an("array");
+    response.body.data.should.be.an("array").and.should.not.be.empty;
+
+    response.body.data.forEach((customer) => {
+      customer.should.include.keys(["firstName", "lastName", "email", "id"]);
+    });
   });
 });
 
