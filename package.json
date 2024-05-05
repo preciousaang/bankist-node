@@ -16,6 +16,8 @@
     "express": "^4.19.2",
     "express-validator": "^7.0.1",
     "mysql2": "^3.9.7",
+    "pino": "^9.0.0",
+    "pino-http": "^9.0.0",
     "reflect-metadata": "^0.2.2",
     "sequelize": "^6.37.3",
     "sqlite3": "^5.1.7"

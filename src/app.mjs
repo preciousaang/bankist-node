@@ -1,6 +1,7 @@
 import express from "express";
 import AccountRoutes from "./routes/accounts.route.mjs";
 import CustomerRoutes from "./routes/customers.route.mjs";
+import pino from "pino-http";
 
 const PORT = process.env.PORT || 3000;
 const app = express();

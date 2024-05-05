@@ -1,6 +1,15 @@
-export const create = (req, res) => {
-  // create logic
-  return res.json("OK");
+import { matchedData } from "express-validator";
+import { createCustomer } from "../services/CustomerService.mjs";
+
+export const create = async (req, res) => {
+  try {
+    const data = matchedData(req);
+    const customer = await createCustomer(data);
+    // console.log(customer);
+    return res.status(201).json({ customer });
+  } catch (err) {
+    console.log(err);
+  }
 };
 
 export const index = (req, res) => {
