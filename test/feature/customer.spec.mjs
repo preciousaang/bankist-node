@@ -41,6 +41,13 @@ describe("Customer tests", () => {
     });
 
     expect(response.status).to.equal(422);
+    expect(response.body).to.have.property("errors");
+
+    const hasExpectedError = response.body.errors.some((err) =>
+      err.msg.includes("A customer with that email already exists")
+    );
+
+    expect(hasExpectedError).to.be.true;
   });
 });
 
