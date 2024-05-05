@@ -6,7 +6,7 @@
   "scripts": {
     "start": "tsc && node dist/app.js",
     "dev": "nodemon --exec ts-node src/app.ts",
-    "test": "mocha"
+    "test": "jest"
   },
   "author": "Precious Ibeagi",
   "license": "ISC",
@@ -17,15 +17,17 @@
     "express": "^4.19.2",
     "express-validator": "^7.0.1",
     "mysql2": "^3.9.7",
-    "sequelize": "^6.37.3",
-    "typescript": "^5.4.5"
+    "sequelize": "^6.37.3"
   },
   "devDependencies": {
-    "@types/mocha": "^10.0.6",
+    "@types/chai": "^4.3.16",
+    "@types/jest": "^29.5.12",
     "chai": "^5.1.0",
-    "mocha": "^10.4.0",
+    "jest": "^29.7.0",
     "nodemon": "^3.1.0",
     "sequelize-cli": "^6.6.2",
-    "ts-node": "^10.9.2"
+    "ts-jest": "^29.1.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5"
   }
 }
