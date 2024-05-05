@@ -57,6 +57,7 @@ describe("Customer tests", () => {
       .send({ page: 1, perPage: 20 });
 
     response.status.should.equal(200);
+    response.body.should.include.keys(["currentPage", "perPage", "data"]);
     response.body.data.should.be.an("array").and.should.not.be.empty;
 
     response.body.data.forEach((customer) => {
