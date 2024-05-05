@@ -1,7 +1,9 @@
 import { app } from "../../src/app.mjs";
 import request from "supertest";
-import { expect } from "chai";
+import { should } from "chai";
 import { require } from "../../src/common/utils.mjs";
+
+should();
 
 const db = require("../../src/models");
 
@@ -18,9 +20,9 @@ describe("Customer tests", () => {
       email: "email@precious.test",
     });
 
-    expect(response.status).to.equal(201);
+    response.status.should.equal(201);
 
-    expect(response.body["customer"]).to.include({
+    response.body.customer.should.include({
       firstName: "Precious",
       lastName: "Ibeagi",
       email: "email@precious.test",
@@ -40,14 +42,23 @@ describe("Customer tests", () => {
       email: "email@precious.test",
     });
 
-    expect(response.status).to.equal(422);
-    expect(response.body).to.have.property("errors");
+    response.status.should.equal(422);
+    response.body.should.have.property("errors");
 
     const hasExpectedError = response.body.errors.some((err) =>
       err.msg.includes("A customer with that email already exists")
     );
 
-    expect(hasExpectedError).to.be.true;
+    hasExpectedError.should.be.true;
+  });
+
+  it("should be able to list customers", async () => {
+    const response = await request(app)
+      .get("/customers")
+      .send({ page: 1, perPage: 20 });
+
+    response.status.should.equal(200);
+    response.body.data.should.be.an("array");
   });
 });
 

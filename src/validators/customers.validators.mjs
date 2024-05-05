@@ -1,4 +1,4 @@
-import { body, check, validationResult } from "express-validator";
+import { body, check, query, validationResult } from "express-validator";
 import { require } from "../common/utils.mjs";
 const db = require("../models");
 
@@ -24,5 +24,16 @@ export const createCustomer = async (req, res, next) => {
   if (!errors.isEmpty()) {
     return res.status(422).json({ errors: errors.array() });
   }
+  next();
+};
+
+export const indexCustomer = async (req, res, next) => {
+  await query(["page", "perPage"]).optional().isInt().run(req);
+
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(422).json({ errors: errors.array() });
+  }
+
   next();
 };

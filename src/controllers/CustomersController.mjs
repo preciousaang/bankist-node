@@ -1,18 +1,25 @@
 import { matchedData } from "express-validator";
-import { createCustomer } from "../services/CustomerService.mjs";
+import { createCustomer, listCustomers } from "../services/CustomerService.mjs";
 
 export const create = async (req, res) => {
   try {
     const data = matchedData(req);
     const customer = await createCustomer(data);
-    // console.log(customer);
     return res.status(201).json({ customer });
-  } catch (err) {
-    console.log(err);
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({ err: "Unable to create customer" });
   }
 };
 
-export const index = (req, res) => {
+export const index = async (req, res) => {
+  try {
+    const data = await listCustomers(matchedData(req));
+    return res.status(200).json(data);
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({ err: "Unable to list customer" });
+  }
   // index logic
 };
 
