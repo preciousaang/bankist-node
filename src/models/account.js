@@ -14,7 +14,7 @@ module.exports = (sequelize, DataTypes) => {
   Account.init(
     {
       balance: DataTypes.STRING,
-      userId: {
+      customerId: {
         type: DataTypes.BIGINT,
       },
     },

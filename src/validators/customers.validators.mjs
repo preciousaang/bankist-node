@@ -1,4 +1,4 @@
-import { body, check, query, validationResult } from "express-validator";
+import { body, query, validationResult } from "express-validator";
 import { require } from "../common/utils.mjs";
 const db = require("../models");
 

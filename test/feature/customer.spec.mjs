@@ -6,11 +6,6 @@ const db = require("../../src/models");
 
 should();
 
-// Sync the models with the database (create tables)
-before(async () => {
-  await db.sequelize.sync({ force: true }); // Force sync to drop existing tables
-});
-
 describe("Customer tests", () => {
   it("customer can be created", async () => {
     const response = await request(app).post("/customers").send({
@@ -64,9 +59,4 @@ describe("Customer tests", () => {
       customer.should.include.keys(["firstName", "lastName", "email", "id"]);
     });
   });
-});
-
-// Cleanup after tests
-after(async () => {
-  await db.sequelize.close(); // Close the database connection
 });
