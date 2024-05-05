@@ -16,6 +16,10 @@ module.exports = {
           model: "Customers",
         },
       },
+      accountNumber: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
+      },
       balance: {
         type: Sequelize.TEXT,
         allowNull: false,
